@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Seller Admin Panel</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.4.0/dist/axios.min.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <nav class="navbar bg-dark">
+      <div class="container-fluid">
+        <span class="navbar-brand mb-0 h1 text-light">Admin</span>
+      </div>
+    </nav>
+    <!-- Add item section -->
+    <section class="my-3 container">
+      <div class="card bg-light shadow-sm p-3 rounded col-lg-6 mx-auto">
+        <div class="card-body">
+          <h3 class="card-title text-center">Add a Product</h3>
+          <hr />
+          <form class="d-grid gap-3" id="form">
+            <div class="row g-3">
+              <div class="col">
+                <label for="Product Name" class="form-label"
+                  >Product Name:</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  name="product_name"
+                  required
+                  id="Pname"
+                />
+              </div>
+              <div class="col">
+                <label for="Price" class="form-label">Price:</label>
+                <input
+                  type="number"
+                  class="form-control"
+                  name="price"
+                  required
+                  id="price"
+                />
+              </div>
+            </div>
+            <div>
+              <select
+                class="form-select"
+                name="category"
+                required
+                id="category"
+              >
+                <option selected value="">Product Category</option>
+                <option value="Skincare">Skincare</option>
+                <option value="Electronics">Electronics</option>
+                <option value="Food">Food</option>
+              </select>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block">Add</button>
+          </form>
+        </div>
+      </div>
+    </section>
+    <!-- Data Display Section -->
+    <section class="d-none my-5" id="data-section">
+      <table class="table table-striped container my-2 p-1">
+        <div class="header mx-auto col-md-6 col-lg-4 p-2 mx-2">
+          <h4 class="text-center">Listed Products</h4>
+          <div class="form-select">
+            <select id="categoryFilter" class="form-control">
+              <option value="all" selected>All</option>
+              <option value="Skincare">Skincare</option>
+              <option value="Electronics">Electronics</option>
+              <option value="Food">Food</option>
+            </select>
+          </div>
+        </div>
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Product Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Category</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody id="table-body"></tbody>
+      </table>
+    </section>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+    <script src="script.js"></script>
+  </body>
+</html>
